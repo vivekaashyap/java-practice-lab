@@ -2,25 +2,27 @@
 public class jon {
 
     public static void main(String[] args) {
-        int arr[] = {1, 2, 3, 4, 5};
-        int pivot = -1;
-        for (int i = arr.length - 2; i >= 0; i--) {
-            if (arr[i] < arr[i + 1]) {
-                pivot = i;
-                System.out.println(pivot);
-                break;
+        int mat[][] = {
+            {1, 2, 3},
+            {5, 6, 7},
+            {8, 9, 0}
+        };
+        for (int i = 0; i < mat.length; i++) {
+            int l = 0, r = mat.length;
+            while (l < r) {
+                int temp = mat[i][l];
+                mat[i][l] = mat[i][r];
+                mat[i][r] = temp;
+                l++;
+                r--;
             }
         }
-        if (pivot == -1) {
-            for (int i = arr.length - 1; i >= 0; i--) {
-                System.out.print(arr[i] + " ");
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat.length; j++) {
+                System.out.print(mat[i][j] + " ");
             }
-            return;
+            System.out.println();
         }
-        // int min = Integer.MAX_VALUE;
-        // for (int i = pivot; i < arr.length; i++) {
-        //     min = Math.min(min, arr[i]);
-        // }
-        System.out.println(pivot);
+
     }
 }
